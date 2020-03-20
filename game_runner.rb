@@ -12,10 +12,11 @@ class GameRunner
   end
 
   def initialize(stdout)
-    @stdout = stdout ||= StringIO.new
+    @stdout = stdout ||= StringIO.new(' ')
   end
 
   def run
-
+    @stdout.puts(grid_template)
+    @stdout.string
   end
 end
