@@ -1,4 +1,6 @@
 class GameRunner
+  attr_reader :stdout
+
   def initialize(stdout)
     @stdout = stdout
   end
@@ -14,6 +16,6 @@ class GameRunner
       |__|__|__|
     GRID
 
-    @stdout.print(grid_template)
+    stdout.print(grid_template)
   end
 end
