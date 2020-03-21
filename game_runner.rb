@@ -5,13 +5,13 @@ class GameRunner
 
   def run
     grid_template = <<~GRID
-         __ __ __
-        |  |  |  |
-        |__|__|__|
-        |  |  |  |
-        |__|__|__|
-        |  |  |  |
-        |__|__|__|
+       __ __ __
+      |  |  |  |
+      |__|__|__|
+      |  |  |  |
+      |__|__|__|
+      |  |  |  |
+      |__|__|__|
     GRID
 
     @stdout.print(grid_template)

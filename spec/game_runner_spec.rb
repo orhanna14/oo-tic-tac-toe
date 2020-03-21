@@ -1,9 +1,9 @@
-require 'spec_helper'
-require_relative '../game_runner.rb'
+require "spec_helper"
+require_relative "../game_runner.rb"
 
 RSpec.describe GameRunner do
-  describe '#run' do
-    it 'on start up, an empty grid is rendered on the screen' do
+  describe "#run" do
+    it "on start up, an empty grid is rendered on the screen" do
       grid_template = <<~GRID
          __ __ __
         |  |  |  |
