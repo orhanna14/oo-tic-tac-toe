@@ -5,32 +5,14 @@ RSpec.describe GameRunner do
   describe "#run" do
     it "on start up, an empty grid is rendered on the screen" do
       grid_template = <<~GRID
-         __ __ __
-        |  |  |  |
-        |__|__|__|
-        |  |  |  |
-        |__|__|__|
-        |  |  |  |
-        |__|__|__|
-      GRID
-      stdout = StringIO.new
-      game_start = GameRunner.new(stdout)
-
-      game_start.run
-
-      expect(stdout.string).to eq(grid_template)
-    end
-
-    it "on start up, the grid is rendered with numbers above each column and letters to the left of each row" do
-      grid_template = <<~GRID
         1  2  3
-        __ __ __
-     A |  |  |  |
-       |__|__|__|
-     B |  |  |  |
-       |__|__|__|
-     C |  |  |  |
-       |__|__|__|
+       __ __ __
+    A |  |  |  |
+      |__|__|__|
+    B |  |  |  |
+      |__|__|__|
+    C |  |  |  |
+      |__|__|__|
       GRID
 
       stdout = StringIO.new
