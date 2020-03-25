@@ -1,19 +1,3 @@
-class GameRunner
-  def initialize(stdout)
-    @stdout = stdout
-  end
+require_relative "lib/game_runner"
 
-  def run
-    grid_template = <<~GRID
-       __ __ __
-      |  |  |  |
-      |__|__|__|
-      |  |  |  |
-      |__|__|__|
-      |  |  |  |
-      |__|__|__|
-    GRID
-
-    @stdout.print(grid_template)
-  end
-end
+GameRunner.new($stdout).run
