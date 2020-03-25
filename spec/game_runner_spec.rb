@@ -3,7 +3,7 @@ require_relative "../lib/game_runner.rb"
 
 RSpec.describe GameRunner do
   describe "#run" do
-    it "on start up, an empty grid is rendered on the screen" do
+    it "on start up, an empty grid is rendered on the screen with numbers at the top of each column and letters next to each row" do
       grid_template = <<~GRID
         1  2  3
        __ __ __
