@@ -5,14 +5,16 @@ RSpec.describe GameRunner do
   describe "#run" do
     it "on start up, an empty grid is rendered on the screen" do
       grid_template = <<~GRID
-         __ __ __
-        |  |  |  |
-        |__|__|__|
-        |  |  |  |
-        |__|__|__|
-        |  |  |  |
-        |__|__|__|
+        1  2  3
+       __ __ __
+    A |  |  |  |
+      |__|__|__|
+    B |  |  |  |
+      |__|__|__|
+    C |  |  |  |
+      |__|__|__|
       GRID
+
       stdout = StringIO.new
       game_start = GameRunner.new(stdout)
 
