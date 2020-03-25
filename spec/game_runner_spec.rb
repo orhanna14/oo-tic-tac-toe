@@ -1,5 +1,5 @@
 require "spec_helper"
-require_relative "../game_runner.rb"
+require_relative "../lib/game_runner.rb"
 
 RSpec.describe GameRunner do
   describe "#run" do
