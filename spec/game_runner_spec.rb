@@ -20,7 +20,16 @@ RSpec.describe GameRunner do
 
       game_start.run
 
-      expect(stdout.string).to eq(grid_template)
+      expect(stdout.string).to include(grid_template)
+    end
+
+    it "prompts a user for input" do
+      stdout = StringIO.new
+      game = GameRunner.new(stdout)
+
+      game.run
+
+      expect(stdout.string).to include("Enter your move >")
     end
   end
 end
