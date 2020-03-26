@@ -20,5 +20,6 @@ class GameRunner
 
   def run
     stdout.print(grid_template)
+    stdout.print("Enter your move >")
   end
 end
