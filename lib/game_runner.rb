@@ -16,10 +16,19 @@ class GameRunner
 
   def initialize(stdout, stdin)
     @stdout = stdout
+    @stdin = stdin
   end
 
   def run
-    stdout.print(grid_template)
-    stdout.print("Enter your move >")
+    stdout.puts(grid_template)
+    stdout.puts("Enter your move >")
+
+    coordinates = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+    coordinate = @stdin.gets.chomp
+
+    while !(coordinates.include?(coordinate))
+      stdout.puts("Invalid input. Please try again.")
+      coordinate = @stdin.gets.chomp
+    end
   end
 end
