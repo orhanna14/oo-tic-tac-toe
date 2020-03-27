@@ -6,6 +6,24 @@ class GameRunner
     @stdin = stdin
   end
 
+  def run
+    print_welcome_message
+    demand_valid_coordinates
+  end
+
+  private
+
+  def print_welcome_message
+    stdout.puts(grid_template)
+    stdout.puts("Enter your move >")
+  end
+
+  def demand_valid_coordinates
+    while coordinates_invalid?
+      print_coordinates_error
+    end
+  end
+
   def grid_template
     <<~GRID
        1  2  3
@@ -19,29 +37,20 @@ class GameRunner
     GRID
   end
 
+  def coordinates_invalid?
+    !grid_coordinates.include?(get_user_input)
+  end
+
+  def print_coordinates_error
+    stdout.puts("Invalid input. Please try again.")
+  end
+
   def grid_coordinates
     ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
   end
 
-  def welcome_output
-    stdout.puts(grid_template)
-    stdout.puts("Enter your move >")
-  end
-
-  def invalid_input
-    stdout.puts("Invalid input. Please try again.")
-  end
-
   def get_user_input
-    coordinate = stdin.gets.chomp
-    while !(grid_coordinates.include?(coordinate))
-      invalid_input
-      coordinate = stdin.gets.chomp
-    end
+    stdin.gets.chomp
   end
 
-  def run
-    welcome_output
-    get_user_input
-  end
 end
