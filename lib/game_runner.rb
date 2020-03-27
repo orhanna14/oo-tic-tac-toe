@@ -28,10 +28,14 @@ class GameRunner
     stdout.puts("Enter your move >")
   end
 
+  def invalid_input
+    stdout.puts("Invalid input. Please try again.")
+  end
+
   def get_user_input
     coordinate = stdin.gets.chomp
     while !(grid_coordinates.include?(coordinate))
-      stdout.puts("Invalid input. Please try again.")
+      invalid_input
       coordinate = stdin.gets.chomp
     end
   end
