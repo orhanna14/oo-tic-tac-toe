@@ -1,5 +1,5 @@
 class GameRunner
-  attr_reader :stdout
+  attr_reader :stdout, :stdin
 
   def grid_template
     <<~GRID
@@ -24,11 +24,11 @@ class GameRunner
     stdout.puts("Enter your move >")
 
     coordinates = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
-    coordinate = @stdin.gets.chomp
+    coordinate = stdin.gets.chomp
 
     while !(coordinates.include?(coordinate))
       stdout.puts("Invalid input. Please try again.")
-      coordinate = @stdin.gets.chomp
+      coordinate = stdin.gets.chomp
     end
   end
 end
