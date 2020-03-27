@@ -17,20 +17,25 @@ RSpec.describe GameRunner do
         GRID
 
         stdout = StringIO.new
-        game_start = GameRunner.new(stdout)
+        stdin = StringIO.new
+        game = GameRunner.new(stdout, stdin)
+        expect(stdin).to receive(:gets).and_return("A3")
 
-        game_start.run
+        game.run
 
         expect(stdout.string).to include(grid_template)
       end
 
-      it "prompts a user for input" do
+      it "prompts a user for input, returns a message when given invalid input, and quits when input is valid" do
         stdout = StringIO.new
-        game = GameRunner.new(stdout)
+        stdin = StringIO.new
+        game = GameRunner.new(stdout, stdin)
+        expect(stdin).to receive(:gets).and_return("Z6", "B12", "A3")
 
         game.run
 
         expect(stdout.string).to include("Enter your move >")
+        expect(stdout.string).to include("Invalid input. Please try again.\nInvalid input. Please try again.")
       end
     end
   end
