@@ -1,6 +1,11 @@
 class GameRunner
   attr_reader :stdout, :stdin
 
+  def initialize(stdout, stdin)
+    @stdout = stdout
+    @stdin = stdin
+  end
+
   def grid_template
     <<~GRID
        1  2  3
@@ -14,21 +19,25 @@ class GameRunner
     GRID
   end
 
-  def initialize(stdout, stdin)
-    @stdout = stdout
-    @stdin = stdin
+  def grid_coordinates
+    ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
   end
 
-  def run
+  def welcome_output
     stdout.puts(grid_template)
     stdout.puts("Enter your move >")
+  end
 
-    coordinates = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+  def get_user_input
     coordinate = stdin.gets.chomp
-
-    while !(coordinates.include?(coordinate))
+    while !(grid_coordinates.include?(coordinate))
       stdout.puts("Invalid input. Please try again.")
       coordinate = stdin.gets.chomp
     end
+  end
+
+  def run
+    welcome_output
+    get_user_input
   end
 end
