@@ -35,7 +35,7 @@ RSpec.describe GameRunner do
         game.run
 
         expect(stdout.string).to include("Enter your move >")
-        expect(stdout.string).to include("Invalid input. Please try again.\nInvalid input. Please try again.")
+        expect(stdout.string.scan(/Invalid input. Please try again./).size).to eq(2)
       end
     end
   end
