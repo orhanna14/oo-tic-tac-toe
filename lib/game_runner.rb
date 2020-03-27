@@ -14,7 +14,7 @@ class GameRunner
     GRID
   end
 
-  def initialize(stdout)
+  def initialize(stdout, stdin)
     @stdout = stdout
   end
 
