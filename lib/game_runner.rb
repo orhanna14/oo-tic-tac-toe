@@ -1,34 +1,37 @@
+require_relative "grid"
+require_relative "printer"
+
 class GameRunner
-  attr_reader :stdout
+  attr_reader :stdout, :stdin, :grid, :printer
 
-  def grid_template
-    <<~GRID
-       1  2  3
-      __ __ __
-   A |  |  |  |
-     |__|__|__|
-   B |  |  |  |
-     |__|__|__|
-   C |  |  |  |
-     |__|__|__|
-    GRID
-  end
-
-  def initialize(stdout, stdin)
+  def initialize(stdout, stdin, grid = Grid.new)
     @stdout = stdout
     @stdin = stdin
+    @grid = grid
+  end
+
+  def printer
+    @printer ||= Printer.new(stdout, grid)
   end
 
   def run
-    stdout.puts(grid_template)
-    stdout.puts("Enter your move >")
+    printer.print_welcome_message
+    demand_valid_coordinates
+  end
 
-    coordinates = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
-    coordinate = @stdin.gets.chomp
+  private
 
-    while !(coordinates.include?(coordinate))
-      stdout.puts("Invalid input. Please try again.")
-      coordinate = @stdin.gets.chomp
+  def demand_valid_coordinates
+    while coordinates_invalid?
+      printer.print_coordinates_error
     end
+  end
+
+  def coordinates_invalid?
+    !grid.grid_coordinates.include?(get_user_input)
+  end
+
+  def get_user_input
+    stdin.gets.chomp
   end
 end
