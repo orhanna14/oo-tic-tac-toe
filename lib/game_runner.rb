@@ -4,11 +4,14 @@ require_relative "printer"
 class GameRunner
   attr_reader :stdout, :stdin, :grid, :printer
 
-  def initialize(stdout, stdin, grid = Grid.new, printer = Printer.new(stdout, grid))
+  def initialize(stdout, stdin, grid = Grid.new)
     @stdout = stdout
     @stdin = stdin
     @grid = grid
-    @printer = printer
+  end
+
+  def printer
+    @printer ||= Printer.new(stdout, grid)
   end
 
   def run
