@@ -1,5 +1,5 @@
 class Grid
-    def grid_template
+    def template
         <<~GRID
            1  2  3
           __ __ __
@@ -11,8 +11,14 @@ class Grid
          |__|__|__|
         GRID
       end
+
+    def coordinates_invalid?(coordinate)
+      !coordinates.include?(coordinate)
+    end
+
+    private
     
-    def grid_coordinates
-        ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+    def coordinates
+      ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
     end
 end

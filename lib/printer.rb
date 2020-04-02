@@ -7,7 +7,7 @@ class Printer
     end
   
     def print_welcome_message
-      stdout.puts(grid.grid_template)
+      stdout.puts(grid.template)
       stdout.puts("Enter your move >")
     end
   
