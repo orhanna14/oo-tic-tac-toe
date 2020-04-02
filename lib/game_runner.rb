@@ -28,7 +28,7 @@ class GameRunner
   end
 
   def coordinates_invalid?
-    !grid.grid_coordinates.include?(get_user_input)
+    grid.coordinates_invalid?(get_user_input)
   end
 
   def get_user_input
