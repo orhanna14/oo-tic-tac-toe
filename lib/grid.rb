@@ -12,8 +12,8 @@ class Grid
       GRID
     end
 
-  def coordinates_invalid?(coordinate)
-    !coordinates.include?(coordinate)
+  def coordinate_valid?(coordinate)
+    coordinates.include?(coordinate)
   end
 
   private
