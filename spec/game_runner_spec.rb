@@ -6,15 +6,15 @@ RSpec.describe GameRunner do
     context "on start up" do
       it "renders an empty grid with numbers at the top of each column and letters next to each row" do
         grid_template = <<~GRID
-          1  2  3
-         __ __ __
-      A |  |  |  |
-        |__|__|__|
-      B |  |  |  |
-        |__|__|__|
-      C |  |  |  |
-        |__|__|__|
-        GRID
+           1  2  3
+           __ __ __
+        A |  |  |  |
+          |__|__|__|
+        B |  |  |  |
+          |__|__|__|
+        C |  |  |  |
+          |__|__|__|
+          GRID
 
         stdout = StringIO.new
         stdin = StringIO.new
@@ -52,7 +52,7 @@ RSpec.describe GameRunner do
           |__|__|__|
         C |  |  |  |
           |__|__|__|
-          GRID_MARKED
+        GRID_MARKED
 
         game.run
 
