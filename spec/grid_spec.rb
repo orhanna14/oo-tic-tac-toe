@@ -38,15 +38,22 @@ RSpec.describe Grid do
       expect(grid.coordinate_valid?(invalid_column)).to eq false
     end
 
-    it "is true when the input is in the correct format" do
-      valid_format = "A3"
-      grid = Grid.new
-
-      expect(grid.coordinate_valid?(valid_format)).to eq true
-    end
-
     it "is false when input is not in the correct format" do
       invalid_format = "3A"
+      grid = Grid.new
+
+      expect(grid.coordinate_valid?(invalid_format)).to eq false
+    end
+
+    it "is false when input is too many characters" do
+      invalid_format = "A3 "
+      grid = Grid.new
+
+      expect(grid.coordinate_valid?(invalid_format)).to eq false
+    end
+
+    it "is false when input is too few characters" do
+      invalid_format = "A"
       grid = Grid.new
 
       expect(grid.coordinate_valid?(invalid_format)).to eq false
