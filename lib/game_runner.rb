@@ -22,13 +22,13 @@ class GameRunner
   private
 
   def demand_valid_coordinates
-    while !coordinate_valid?
+    while coordinate_invalid?
       printer.print_coordinates_error
     end
   end
 
-  def coordinate_valid?
-    grid.coordinate_valid?(get_user_input)
+  def coordinate_invalid?
+    !grid.coordinate_valid?(get_user_input)
   end
 
   def get_user_input
