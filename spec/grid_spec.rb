@@ -3,36 +3,43 @@ require_relative "../lib/grid.rb"
 
 RSpec.describe Grid do
   describe "#coordinate_valid?" do
-    it "is true if in the last row of the grid" do
-      valid_row = "A3"
+    it "is true if in the first row and first column of the grid" do
+      valid_row_column = "A1"
       grid = Grid.new
 
-      expect(grid.coordinate_valid?(valid_row)).to eq true
+      expect(grid.coordinate_valid?(valid_row_column)).to eq true
+    end
+
+    it "is true if in the middle row and middle column of the grid" do
+      valid_row_column = "B2"
+      grid = Grid.new
+
+      expect(grid.coordinate_valid?(valid_row_column)).to eq true
+    end
+
+    it "is true if in the last row and last column of the grid" do
+      valid_row_column = "C3"
+      grid = Grid.new
+
+      expect(grid.coordinate_valid?(valid_row_column)).to eq true
     end
 
     it "is false when after the last row of the grid" do
-      invalid_row = "A6"
+      invalid_row = "D1"
       grid = Grid.new
 
       expect(grid.coordinate_valid?(invalid_row)).to eq false
     end
 
-    it "is false when before the first row of the grid" do
+    it "is false when before the first column of the grid" do
       invalid_row = "A0"
       grid = Grid.new
 
       expect(grid.coordinate_valid?(invalid_row)).to eq false
     end
 
-    it "is true if in the last column of the grid" do
-      valid_column = "A3"
-      grid = Grid.new
-
-      expect(grid.coordinate_valid?(valid_column)).to eq true
-    end
-
     it "is false when after the last column of the grid" do
-      invalid_column = "Z3"
+      invalid_column = "B4"
       grid = Grid.new
 
       expect(grid.coordinate_valid?(invalid_column)).to eq false
@@ -57,13 +64,6 @@ RSpec.describe Grid do
       grid = Grid.new
 
       expect(grid.coordinate_valid?(invalid_format)).to eq false
-    end
-
-    it "is true when the first character is upper case" do
-      valid_upper_case = "A3"
-      grid = Grid.new
-
-      expect(grid.coordinate_valid?(valid_upper_case)).to eq true
     end
 
     it "is false when the first character is not upper case" do
