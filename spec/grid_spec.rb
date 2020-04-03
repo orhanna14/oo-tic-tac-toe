@@ -10,7 +10,7 @@ RSpec.describe Grid do
       expect(grid.coordinate_valid?(valid_row_column)).to eq true
     end
 
-    it "is true if in the middle row and middle column of the grid" do
+    it "is true if somewhere in the middle of the grid" do
       valid_row_column = "B2"
       grid = Grid.new
 
