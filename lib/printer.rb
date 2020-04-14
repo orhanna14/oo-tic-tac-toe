@@ -14,4 +14,8 @@ class Printer
   def print_coordinates_error
     stdout.puts("Invalid input. Please try again.")
   end
+
+  def print_updated_grid
+    stdout.puts(grid.update_grid)
+  end
 end

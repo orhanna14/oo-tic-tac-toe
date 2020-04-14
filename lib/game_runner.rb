@@ -17,6 +17,7 @@ class GameRunner
   def run
     printer.print_welcome_message
     demand_valid_coordinates
+    printer.print_updated_grid
   end
 
   private
