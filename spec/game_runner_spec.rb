@@ -14,7 +14,7 @@ RSpec.describe GameRunner do
           |__|__|__|
         C |  |  |  |
           |__|__|__|
-          GRID
+        GRID
 
         stdout = StringIO.new
         stdin = StringIO.new

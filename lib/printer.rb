@@ -16,6 +16,6 @@ class Printer
   end
 
   def print_updated_grid
-    stdout.puts(grid.update_grid)
+    stdout.puts(grid.template)
   end
 end
