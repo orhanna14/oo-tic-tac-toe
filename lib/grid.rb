@@ -2,7 +2,7 @@ class Grid
   attr_accessor :coordinates
 
   def initialize
-    @coordinates = reset_board
+    @coordinates = reset_grid
   end
 
   def template
@@ -49,7 +49,7 @@ class Grid
 
   private
 
-  def reset_board
+  def reset_grid
     {"A1"=> '', "A2"=> '', "A3"=> '', "B1"=> '', "B2"=> '', "B3"=> '', "C1"=> '', "C2"=> '', "C3"=> ''}
   end
 end
