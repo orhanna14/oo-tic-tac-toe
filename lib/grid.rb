@@ -1,4 +1,10 @@
 class Grid
+  attr_accessor :coordinates
+
+  def initialize
+    @coordinates = reset_board
+  end
+
   def template
       <<~GRID
           1  2  3
@@ -10,7 +16,7 @@ class Grid
       C |  |  |  |
         |__|__|__|
       GRID
-    end
+  end
 
   def coordinate_valid?(coordinate)
     coordinates.key?(coordinate)
@@ -21,12 +27,12 @@ class Grid
   end
 
   def get_value(coordinate)
-    return coordinates[coordinate]
+    coordinates[coordinate]
   end
 
- private
+  private
 
-  def coordinates
+  def reset_board
     {"A1"=> '', "A2"=> '', "A3"=> '', "B1"=> '', "B2"=> '', "B3"=> '', "C1"=> '', "C2"=> '', "C3"=> ''}
   end
 end
