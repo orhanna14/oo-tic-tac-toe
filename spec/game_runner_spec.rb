@@ -48,7 +48,7 @@ RSpec.describe GameRunner do
         __ __ __
      A |  |  |  |
        |__|__|__|
-     B |  |  | X |
+     B |  |  |X |
        |__|__|__|
      C |  |  |  |
        |__|__|__|

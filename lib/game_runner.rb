@@ -17,20 +17,20 @@ class GameRunner
   def run
     printer.print_welcome_message
     printer.print_updated_grid(grid.coordinates)
-    demand_valid_coordinates
+    ask_for_coordinate
+    printer.print_updated_grid(grid.coordinates)
   end
 
   private
 
-  def demand_valid_coordinates
-    while coordinate_invalid?
+  def ask_for_coordinate
+    while invalid_coordinate?
       printer.print_coordinates_error
     end
-    printer.print_updated_grid(grid.coordinates)
   end
 
-  def coordinate_invalid?
-    !grid.coordinate_valid?(get_user_input)
+  def invalid_coordinate?
+    !grid.mark(get_user_input)
   end
 
   def get_user_input

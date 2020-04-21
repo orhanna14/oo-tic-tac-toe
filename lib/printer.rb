@@ -21,11 +21,11 @@ class Printer
     <<~GRID
        1  2  3
        __ __ __
-    A | #{coordinates["A1"]} | #{coordinates["A2"]} | #{coordinates["A3"]} |
+    A |#{coordinates["A1"]} |#{coordinates["A2"]} |#{coordinates["A3"]} |
       |__|__|__|
-    B | #{coordinates["B1"]} | #{coordinates["B2"]} | #{coordinates["B3"]} |
+    B |#{coordinates["B1"]} |#{coordinates["B2"]} |#{coordinates["B3"]} |
       |__|__|__|
-    C | #{coordinates["C1"]} | #{coordinates["C2"]} | #{coordinates["C3"]} |
+    C |#{coordinates["C1"]} |#{coordinates["C2"]} |#{coordinates["C3"]} |
       |__|__|__|
     GRID
   end
