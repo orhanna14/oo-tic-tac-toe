@@ -11,13 +11,13 @@ class GameRunner
   end
 
   def printer
-    @printer ||= Printer.new(stdout, grid)
+    @printer ||= Printer.new(stdout)
   end
 
   def run
     printer.print_welcome_message
+    printer.print_updated_grid(grid.coordinates)
     demand_valid_coordinates
-    printer.print_updated_grid
   end
 
   private
@@ -26,6 +26,7 @@ class GameRunner
     while coordinate_invalid?
       printer.print_coordinates_error
     end
+    printer.print_updated_grid(grid.coordinates)
   end
 
   def coordinate_invalid?
