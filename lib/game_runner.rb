@@ -33,6 +33,7 @@ class GameRunner
   end
 
   def invalid_coordinate?
+   #player_input.valid_coordinate?(player_input.get_valid_coordinate)
     !grid.mark(player_input.get_coordinate)
   end
 
