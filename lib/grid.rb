@@ -16,6 +16,10 @@ class Grid
     !coordinates.key?(coordinate)
   end
 
+  def get_value(coordinate)
+    coordinates[coordinate]
+  end
+
   private
 
   def reset_grid
