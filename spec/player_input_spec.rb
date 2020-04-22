@@ -8,7 +8,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(valid_row_column)
       allow(valid_row_column).to receive(:gets).and_return("A1")
 
-      expect(player_input.valid_coordinate?).to eq true
+      expect(player_input.valid_coordinate?(valid_row_column)).to eq true
     end
 
     it "is true if somewhere in the middle of the grid" do
@@ -16,7 +16,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(valid_row_column)
       allow(valid_row_column).to receive(:gets).and_return("B2")
 
-      expect(player_input.valid_coordinate?).to eq true
+      expect(player_input.valid_coordinate?(valid_row_column)).to eq true
     end
 
     it "is true if in the last row and last column of the grid" do
@@ -24,7 +24,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(valid_row_column)
       allow(valid_row_column).to receive(:gets).and_return("C3")
 
-      expect(player_input.valid_coordinate?).to eq true
+      expect(player_input.valid_coordinate?(valid_row_column)).to eq true
     end
 
     it "is false when after the last row of the grid" do
@@ -32,7 +32,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(invalid_row)
       allow(invalid_row).to receive(:gets).and_return("D1")
 
-      expect(player_input.valid_coordinate?).to eq false
+      expect(player_input.valid_coordinate?(invalid_row)).to eq false
     end
 
     it "is false when before the first column of the grid" do
@@ -40,7 +40,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(invalid_row)
       allow(invalid_row).to receive(:gets).and_return("A0")
 
-      expect(player_input.valid_coordinate?).to eq false
+      expect(player_input.valid_coordinate?(invalid_row)).to eq false
     end
 
     it "is false when after the last column of the grid" do
@@ -48,7 +48,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(invalid_column)
       allow(invalid_column).to receive(:gets).and_return("B4")
 
-      expect(player_input.valid_coordinate?).to eq false
+      expect(player_input.valid_coordinate?(invalid_column)).to eq false
     end
 
     it "is false when input is not in the correct format" do
@@ -56,7 +56,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(invalid_format)
       allow(invalid_format).to receive(:gets).and_return("3A")
 
-      expect(player_input.valid_coordinate?).to eq false
+      expect(player_input.valid_coordinate?(invalid_format)).to eq false
     end
 
     it "is false when input is too many characters" do
@@ -64,7 +64,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(invalid_format)
       allow(invalid_format).to receive(:gets).and_return("A3 ")
 
-      expect(player_input.valid_coordinate?).to eq false
+      expect(player_input.valid_coordinate?(invalid_format)).to eq false
     end
 
     it "is false when input is too few characters" do
@@ -72,7 +72,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(invalid_format)
       allow(invalid_format).to receive(:gets).and_return("A")
 
-      expect(player_input.valid_coordinate?).to eq false
+      expect(player_input.valid_coordinate?(invalid_format)).to eq false
     end
 
     it "is false when the first character is not upper case" do
@@ -80,7 +80,7 @@ RSpec.describe PlayerInput do
       player_input = PlayerInput.new(invalid_lower_case)
       allow(invalid_lower_case).to receive(:gets).and_return("a3")
 
-      expect(player_input.valid_coordinate?).to eq false
+      expect(player_input.valid_coordinate?(invalid_lower_case)).to eq false
     end
   end
 

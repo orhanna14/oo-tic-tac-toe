@@ -10,6 +10,10 @@ class Grid
     coordinates[coordinate] = 'X'
   end
 
+  def save_player_input(coordinate)
+    return if coordinate_invalid?(coordinate)
+  end
+
   def coordinate_invalid?(coordinate)
     !coordinates.key?(coordinate)
   end
