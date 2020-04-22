@@ -1,13 +1,15 @@
 require_relative "grid"
 require_relative "printer"
+require_relative "player_input"
 
 class GameRunner
-  attr_reader :stdout, :stdin, :grid, :printer
+  attr_reader :stdout, :stdin, :grid, :printer, :player_input
 
   def initialize(stdout, stdin, grid = Grid.new)
     @stdout = stdout
     @stdin = stdin
     @grid = grid
+    @player_input = PlayerInput.new(stdin)
   end
 
   def printer
@@ -30,10 +32,6 @@ class GameRunner
   end
 
   def invalid_coordinate?
-    !grid.mark(get_user_input)
-  end
-
-  def get_user_input
-    stdin.gets.chomp
+    !grid.mark(player_input.get_coordinate)
   end
 end
