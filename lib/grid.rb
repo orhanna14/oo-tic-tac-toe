@@ -6,9 +6,7 @@ class Grid
   end
 
   def mark(coordinate)
-    if coordinate_invalid?(coordinate)
-      return false
-    end
+    return if coordinate_invalid?(coordinate)
     coordinates[coordinate] = 'X'
   end
 

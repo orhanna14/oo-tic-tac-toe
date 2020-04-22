@@ -7,8 +7,10 @@ class PlayerInput
     @coordinates = coordinates
   end
 
-  def assign_to_player(get_coordinate)
-    @player_choice = get_coordinate
+  def assign_to_player
+    if valid_coordinate?
+      @player_choice = choice
+    end
   end
 
   def valid_coordinate?
@@ -16,7 +18,7 @@ class PlayerInput
   end
 
   def get_coordinate
-    stdin.gets.chomp
+    choice = stdin.gets.chomp
   end
 
   private
