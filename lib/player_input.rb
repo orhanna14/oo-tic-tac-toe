@@ -20,8 +20,7 @@ class PlayerInput
     stdin.gets.chomp
   end
 
-  def send_to_coordinates
+  def coordinates
     @coordinates = Coordinates.new(grid, get_user_input)
   end
-
 end
