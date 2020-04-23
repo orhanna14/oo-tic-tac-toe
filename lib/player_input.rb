@@ -9,9 +9,19 @@ class PlayerInput
     @grid = grid
   end
 
-  def get_coordinate
-    #@coordinates = Coordinates.new(grid, stdin.gets.chomp)
+  def get_coordinates
+    until coordinates.valid?
+      get_user_input
+    end
+    coordinates.value
+  end
+
+  def get_user_input
     stdin.gets.chomp
+  end
+
+  def send_to_coordinates
+    @coordinates = Coordinates.new(grid, get_user_input)
   end
 
 end

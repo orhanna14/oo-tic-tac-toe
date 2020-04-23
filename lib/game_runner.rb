@@ -36,11 +36,7 @@ class GameRunner
     !mark_grid
   end
 
-  def choice
-    player_input.get_coordinate
-  end
-
   def mark_grid
-    grid.mark(choice)
+    grid.mark(player_input.get_user_input)
   end
 end
