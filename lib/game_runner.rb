@@ -9,7 +9,7 @@ class GameRunner
     @stdout = stdout
     @stdin = stdin
     @grid = grid
-    @player_input = PlayerInput.new(stdin)
+    @player_input = PlayerInput.new(stdin, grid)
   end
 
   def printer
@@ -32,12 +32,12 @@ class GameRunner
     end
   end
 
-  def choice
-    player_input.get_coordinate
-  end
-
   def invalid_coordinate?
     !mark_grid
+  end
+
+  def choice
+    player_input.get_coordinate
   end
 
   def mark_grid

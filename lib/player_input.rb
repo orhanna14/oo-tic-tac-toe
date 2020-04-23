@@ -1,28 +1,17 @@
+require_relative "coordinates"
+
 class PlayerInput
-  attr_reader :stdin, :coordinates
+  attr_reader :stdin, :grid, :coordinates
   attr_accessor :player_choice
   
-  def initialize(stdin)
+  def initialize(stdin, grid)
     @stdin = stdin
-    @coordinates = coordinate_values
-  end
-
-  def assign_to_player(coordinate)
-    return if valid_coordinate?(coordinate)
-      @player_choice = coordinate
-  end
-
-  def valid_coordinate?(coordinate)
-    coordinates.include?(get_coordinate)
+    @grid = grid
   end
 
   def get_coordinate
+    #@coordinates = Coordinates.new(grid, stdin.gets.chomp)
     stdin.gets.chomp
   end
 
-  private
-
-  def coordinate_values
-     ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
-  end
 end
