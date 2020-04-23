@@ -2,18 +2,14 @@ class Grid
   attr_accessor :coordinates
 
   def initialize
-    @coordinates = reset_grid
+    @coordinates = grid_structure
   end
 
   def mark(coordinate)
     return if coordinate_invalid?(coordinate)
     coordinates[coordinate] = 'X'
   end
-
-  def save_player_input(coordinate)
-    return if coordinate_invalid?(coordinate)
-  end
-
+  
   def coordinate_invalid?(coordinate)
     !coordinates.key?(coordinate)
   end
@@ -24,7 +20,7 @@ class Grid
 
   private
 
-  def reset_grid
+  def grid_structure
     {"A1"=> ' ', "A2"=> ' ', "A3"=> ' ', "B1"=> ' ', "B2"=> ' ', "B3"=> ' ', "C1"=> ' ', "C2"=> ' ', "C3"=> ' '}
   end
 end

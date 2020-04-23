@@ -1,13 +1,13 @@
 class PlayerInput
-  attr_reader :stdin
+  attr_reader :stdin, :coordinates
   attr_accessor :player_choice
   
   def initialize(stdin)
     @stdin = stdin
-    @coordinates = coordinates
+    @coordinates = coordinate_values
   end
 
-  def assign_to_player
+  def assign_to_player(coordinate)
     return if valid_coordinate?(coordinate)
       @player_choice = coordinate
   end
@@ -22,7 +22,7 @@ class PlayerInput
 
   private
 
-  def coordinates
+  def coordinate_values
      ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
   end
 end
