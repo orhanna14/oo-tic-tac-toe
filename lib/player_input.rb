@@ -1,18 +1,21 @@
 require_relative "coordinates"
 
 class PlayerInput
-  attr_reader :stdin, :grid, :coordinates
+  attr_reader :stdin, :coordinates
   
-  def initialize(stdin, grid)
+  def initialize(stdin)
     @stdin = stdin
-    @grid = grid
   end
 
   def get_coordinates
     until coordinates.valid?
-      get_user_input
+      get_and_validate
     end
     coordinates.value
+  end
+
+  def get_and_validate
+    get_user_input
   end
 
   def get_user_input
@@ -20,6 +23,6 @@ class PlayerInput
   end
 
   def coordinates
-    @coordinates = Coordinates.new(grid, get_user_input)
+    @coordinates = Coordinates.new(get_user_input)
   end
 end
