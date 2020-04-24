@@ -38,6 +38,6 @@ class GameRunner
   end
 
   def mark_grid
-    grid.mark(player_input.get_user_input)
+    player_input.send_to_grid
   end
 end

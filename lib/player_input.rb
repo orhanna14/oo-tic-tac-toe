@@ -11,13 +11,13 @@ class PlayerInput
 
   def get_coordinates
     until coordinates.valid?
-      get_and_validate
+      get_user_input
     end
     coordinates.value
   end
 
-  def get_and_validate
-    get_user_input
+  def send_to_grid
+    grid.mark(get_user_input)
   end
 
   def get_user_input
