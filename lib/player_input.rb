@@ -1,12 +1,10 @@
 require_relative "coordinates"
-require_relative "grid_printer"
 
 class PlayerInput
   attr_reader :stdin, :coordinates
   
   def initialize(stdin)
     @stdin = stdin
-    @grid_view = GridPrinter.new
   end
 
   def get_coordinates

@@ -1,8 +1,9 @@
 class GridPrinter
-  attr_reader :coordinate
+  attr_reader :coordinates, :stdout, :grid
 
-  def initialize
-    @coordinate = coordinate
+  def initialize(stdout, grid)
+    @stdout = stdout
+    @grid = grid
   end
 
   def print_grid(coordinates)
