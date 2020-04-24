@@ -12,7 +12,7 @@ RSpec.describe PlayerInput do
        grid_printer = GridPrinter.new(valid_format, grid)
        player_input = PlayerInput.new(valid_format, grid, grid_printer)
        allow(valid_format).to receive(:gets).and_return("A1")
-       coordinates = Coordinates.new(player_input.get_user_input)
+       coordinates = Coordinates.new(player_input.get_user_input, double(grid))
 
        result = player_input.get_coordinates
 
@@ -25,7 +25,7 @@ RSpec.describe PlayerInput do
       grid_printer = GridPrinter.new(invalid_format, grid)
       player_input = PlayerInput.new(invalid_format, grid, grid_printer)
       allow(invalid_format).to receive(:gets).and_return("A6", "B7", "A1")
-      coordinates = Coordinates.new(player_input.get_user_input)
+      coordinates = Coordinates.new(player_input.get_user_input, double(grid))
 
       result = player_input.get_coordinates
 

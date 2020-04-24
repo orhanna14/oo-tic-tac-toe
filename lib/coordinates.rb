@@ -1,7 +1,7 @@
 class Coordinates
   attr_reader :value, :values
 
-  def initialize(value)
+  def initialize(value, grid)
     @value = value
     @values = coordinate_values
   end

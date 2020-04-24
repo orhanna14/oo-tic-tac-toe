@@ -25,6 +25,6 @@ class PlayerInput
   end
 
   def coordinates
-    @coordinates = Coordinates.new(get_user_input)
+    @coordinates = Coordinates.new(get_user_input, grid)
   end
 end
