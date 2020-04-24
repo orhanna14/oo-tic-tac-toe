@@ -20,7 +20,6 @@ class GameRunner
     printer.print_welcome_message
     printer.print_updated_grid(grid.coordinates)
     get_valid_coordinate
-    #mark_grid
     printer.print_updated_grid(grid.coordinates)
   end
 
@@ -34,7 +33,6 @@ class GameRunner
 
   def invalid_coordinate?
     !mark_grid
-    #player_input.get_coordinates
   end
 
   def mark_grid
