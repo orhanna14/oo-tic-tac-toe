@@ -1,24 +1,24 @@
 class GridPrinter
-  attr_reader :coordinates, :stdout, :grid
+  attr_reader :stdout, :grid
 
   def initialize(stdout, grid)
     @stdout = stdout
-    @grid = grid
+    @grid = grid.structure
   end
 
   def print_grid
-    stdout.puts(current_grid(grid.coordinates))
+    stdout.puts(current_grid)
   end
 
-  def current_grid(coordinates)
+  def current_grid
     <<~GRID
        1  2  3
        __ __ __
-    A |#{coordinates["A1"]} |#{coordinates["A2"]} |#{coordinates["A3"]} |
+    A |#{grid["A1"]} |#{grid["A2"]} |#{grid["A3"]} |
       |__|__|__|
-    B |#{coordinates["B1"]} |#{coordinates["B2"]} |#{coordinates["B3"]} |
+    B |#{grid["B1"]} |#{grid["B2"]} |#{grid["B3"]} |
       |__|__|__|
-    C |#{coordinates["C1"]} |#{coordinates["C2"]} |#{coordinates["C3"]} |
+    C |#{grid["C1"]} |#{grid["C2"]} |#{grid["C3"]} |
       |__|__|__|
     GRID
   end

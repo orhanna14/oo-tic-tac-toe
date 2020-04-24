@@ -10,8 +10,8 @@ class GameRunner
     @stdout = stdout
     @stdin = stdin
     @grid = grid
-    @player_input = PlayerInput.new(stdin)
     @grid_printer = GridPrinter.new(stdout, grid)
+    @player_input = PlayerInput.new(stdin, grid, grid_printer)
   end
 
   def printer

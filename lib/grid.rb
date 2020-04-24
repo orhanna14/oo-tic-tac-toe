@@ -1,21 +1,21 @@
 class Grid
-  attr_accessor :coordinates
+  attr_accessor :structure
 
   def initialize
-    @coordinates = grid_structure
+    @structure = grid_structure
   end
 
   def mark(coordinate)
     return if coordinate_invalid?(coordinate)
-    coordinates[coordinate] = 'X'
+    structure[coordinate] = 'X'
   end
   
   def coordinate_invalid?(coordinate)
-    !coordinates.key?(coordinate)
+    !structure.key?(coordinate)
   end
 
   def get_value(coordinate)
-    coordinates[coordinate]
+    structure[coordinate]
   end
 
   private
