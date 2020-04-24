@@ -6,8 +6,8 @@ class GridPrinter
     @grid = grid
   end
 
-  def print_grid(coordinates)
-    stdout.puts(current_grid(coordinates))
+  def print_grid
+    stdout.puts(current_grid(grid.coordinates))
   end
 
   def current_grid(coordinates)

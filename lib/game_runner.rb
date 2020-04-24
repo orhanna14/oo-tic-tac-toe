@@ -20,9 +20,9 @@ class GameRunner
 
   def run
     printer.print_welcome_message
-    grid_printer.print_grid(grid.coordinates)
+    grid_printer.print_grid
     get_valid_coordinate
-    grid_printer.print_grid(grid.coordinates)
+    grid_printer.print_grid
   end
 
   private
