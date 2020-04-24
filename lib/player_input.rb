@@ -17,7 +17,11 @@ class PlayerInput
   end
 
   def send_to_grid
-    grid.mark(get_user_input)
+    coordinates.send_to_grid
+  end
+
+  def valid
+    coordinates.valid?
   end
 
   def get_user_input
