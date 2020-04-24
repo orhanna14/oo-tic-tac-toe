@@ -7,10 +7,10 @@ class GridPrinter
   end
 
   def print_grid(coordinates)
-    stdout.puts(print_current_grid(coordinates))
+    stdout.puts(current_grid(coordinates))
   end
 
-  def print_current_grid(coordinates)
+  def current_grid(coordinates)
     <<~GRID
        1  2  3
        __ __ __
