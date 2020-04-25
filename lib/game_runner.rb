@@ -16,16 +16,28 @@ class GameRunner
   end
 
   def run
-    printer.print_welcome_message
-    grid_printer.print_grid
+    print_welcome_message
+    print_grid
     get_valid_coordinate
-    #player_input.mark_grid
-    grid_printer.print_grid
+    mark_grid
+    print_grid
   end
 
   private
 
+  def print_welcome_message
+    printer.print_welcome_message
+  end
+
+  def print_grid
+    grid_printer.print_grid
+  end
+
   def get_valid_coordinate
     player_input.get_valid_coordinate
+  end
+
+  def mark_grid
+    player_input.mark_grid
   end
 end
