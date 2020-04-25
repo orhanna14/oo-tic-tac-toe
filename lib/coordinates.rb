@@ -9,8 +9,4 @@ class Coordinates
   def valid?
     !grid.coordinate_invalid?(value)
   end
-
-  def send_to_grid
-    grid.mark(value)
-  end
 end
