@@ -17,19 +17,6 @@ class Grid
     structure[coordinate]
   end
 
-  def current_grid
-    <<~GRID
-       1  2  3
-       __ __ __
-    A |#{structure["A1"]} |#{structure["A2"]} |#{structure["A3"]} |
-      |__|__|__|
-    B |#{structure["B1"]} |#{structure["B2"]} |#{structure["B3"]} |
-      |__|__|__|
-    C |#{structure["C1"]} |#{structure["C2"]} |#{structure["C3"]} |
-      |__|__|__|
-    GRID
-  end
-
   private
 
   def grid_structure
