@@ -7,6 +7,6 @@ class Coordinates
   end
 
   def valid?
-    !grid.coordinate_invalid?(value)
+    grid.coordinate_valid?(value)
   end
 end

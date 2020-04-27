@@ -9,8 +9,8 @@ class Grid
     structure[coordinate] = 'X'
   end
   
-  def coordinate_invalid?(coordinate)
-    !structure.key?(coordinate)
+  def coordinate_valid?(coordinate)
+    structure.key?(coordinate)
   end
 
   def get_value(coordinate)
