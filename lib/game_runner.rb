@@ -10,7 +10,6 @@ class GameRunner
     @stdout = stdout
     @stdin = stdin
     @grid = grid
-    
   end
 
   def printer
