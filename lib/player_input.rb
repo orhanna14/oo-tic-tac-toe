@@ -24,10 +24,6 @@ class PlayerInput
     end
   end
 
-  def mark_grid
-    grid.mark(get_valid_coordinate)
-  end
-
   def coordinates
     @coordinates ||= NullCoordinates.new
   end
