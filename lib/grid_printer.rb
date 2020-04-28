@@ -3,22 +3,26 @@ class GridPrinter
 
   def initialize(stdout, grid)
     @stdout = stdout
-    @grid = grid.structure
+    @grid = grid
   end
 
   def print_grid
-    stdout.puts(current_grid)
+    stdout.puts(replace_template_with_value_from_grid)
   end
 
-  def current_grid
+  def replace_template_with_value_from_grid
+   grid_template_model_mustache.gsub(/[A-C][1-3]/) { |cell| grid.get_value(cell) }
+  end
+
+  def grid_template_model_mustache
     <<~GRID
-       1  2  3
+        1  2  3
        __ __ __
-    A |#{grid["A1"]} |#{grid["A2"]} |#{grid["A3"]} |
+    A |A1 |A2 |A3 |
       |__|__|__|
-    B |#{grid["B1"]} |#{grid["B2"]} |#{grid["B3"]} |
+    B |B1 |B2 |B3 |
       |__|__|__|
-    C |#{grid["C1"]} |#{grid["C2"]} |#{grid["C3"]} |
+    C |C1 |C2 |C3 |
       |__|__|__|
     GRID
   end
