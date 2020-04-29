@@ -14,7 +14,7 @@ RSpec.describe GameRunner do
           |__|__|__|
         C |  |  |  |
           |__|__|__|
-          GRID
+        GRID
 
         stdout = StringIO.new
         stdin = StringIO.new
@@ -44,14 +44,14 @@ RSpec.describe GameRunner do
         game = GameRunner.new(stdout, stdin)
         expect(stdin).to receive(:gets).and_return("B3")
         grid_marked = <<~GRID_MARKED
-           1  2  3
-           __ __ __
-        A |  |  |  |
-          |__|__|__|
-        B |  |  |X |
-          |__|__|__|
-        C |  |  |  |
-          |__|__|__|
+        1  2  3
+        __ __ __
+     A |  |  |  |
+       |__|__|__|
+     B |  |  |X |
+       |__|__|__|
+     C |  |  |  |
+       |__|__|__|
         GRID_MARKED
 
         game.run

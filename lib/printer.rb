@@ -1,13 +1,11 @@
 class Printer
-  attr_reader :stdout, :grid
+  attr_reader :stdout
 
-  def initialize(stdout, grid)
+  def initialize(stdout)
     @stdout = stdout
-    @grid = grid
   end
 
   def print_welcome_message
-    stdout.puts(grid.template)
     stdout.puts("Enter your move >")
   end
 
