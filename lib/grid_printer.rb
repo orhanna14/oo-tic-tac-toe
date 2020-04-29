@@ -11,10 +11,10 @@ class GridPrinter
   end
 
   def replace_template_with_value_from_grid
-   grid_template_model_mustache.gsub(/[A-C][1-3]/) { |cell| grid.get_value(cell) }
+   grid_template.gsub(/[A-C][1-3]/) { |cell| grid.get_value(cell) }
   end
 
-  def grid_template_model_mustache
+  def grid_template
     <<~GRID
         1  2  3
        __ __ __
