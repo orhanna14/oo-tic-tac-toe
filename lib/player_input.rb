@@ -2,7 +2,7 @@ require_relative "coordinates"
 require_relative "null_coordinates"
 
 class PlayerInput
-  attr_reader :stdin, :grid, :printer, :coordinates
+  attr_reader :stdin, :grid, :printer
   
   def initialize(stdin, grid, printer)
     @stdin = stdin

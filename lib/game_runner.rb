@@ -27,7 +27,6 @@ class GameRunner
   def run
     print_welcome_message
     print_grid
-    valid_coordinate
     mark_grid
     print_grid
   end
