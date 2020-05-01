@@ -7,16 +7,16 @@ RSpec.describe Coordinates do
     it "grid returns false from coordinate_valid?" do
       invalid_row_column = "Z10"
       grid = Grid.new
-      coordinate = Coordinates.new(invalid_row_column, grid)
+      coordinate = Coordinates.new(invalid_row_column)
 
-      expect(coordinate.valid?).to eq false
+      expect(coordinate.valid?(grid)).to eq false
     end
     it "grid returns true from coordinate_valid?" do
       valid_row_column = "A1"
       grid = Grid.new
-      coordinate = Coordinates.new(valid_row_column, grid)
+      coordinate = Coordinates.new(valid_row_column)
 
-      expect(coordinate.valid?).to eq true
+      expect(coordinate.valid?(grid)).to eq true
     end
   end
 end
