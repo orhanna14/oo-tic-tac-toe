@@ -1,7 +1,7 @@
 require_relative "coordinates"
 require_relative "null_coordinates"
 
-class PlayerInput
+class PlayerTurn
   attr_reader :stdin, :grid, :printer
   
   def initialize(stdin, grid, printer)
@@ -12,28 +12,29 @@ class PlayerInput
 
   def get_valid_coordinate
     until coordinates.valid?(grid)
-      get_coordinate_and_print_error
+      ask_for_coordinate_and_print_error
     end
     coordinates.value
   end
 
-  def get_coordinate_and_print_error
-    get_coordinate_input
+  def ask_for_coordinate_and_print_error
+    initialize_input_as_a_coordinate
     unless coordinates.valid?(grid)
       printer.print_coordinates_error
     end
   end
 
+  def get_initial_input
+    stdin.gets.chomp
+  end
+
+  private
+
   def coordinates
     @coordinates ||= NullCoordinates.new
   end
 
-  def get_coordinate_input
-    @coordinates = Coordinates.new(get_user_input)
+  def initialize_input_as_a_coordinate
+    @coordinates = Coordinates.new(get_initial_input)
   end
-
-  def get_user_input
-    stdin.gets.chomp
-  end
-
 end
