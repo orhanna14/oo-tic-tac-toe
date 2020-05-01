@@ -27,6 +27,7 @@ class GameRunner
   def run
     print_welcome_message
     print_grid
+    #------
     mark_grid
     print_grid
   end
@@ -41,11 +42,11 @@ class GameRunner
     grid_printer.print_grid
   end
 
-  def valid_coordinate
+  def get_valid_coordinate
     player_input.get_valid_coordinate
   end
 
   def mark_grid
-    grid.mark(valid_coordinate)
+    grid.mark(get_valid_coordinate)
   end
 end

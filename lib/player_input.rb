@@ -11,7 +11,7 @@ class PlayerInput
   end
 
   def get_valid_coordinate
-    until coordinates.valid?
+    until coordinates.valid?(grid)
       get_coordinate_and_print_error
     end
     coordinates.value
@@ -19,7 +19,7 @@ class PlayerInput
 
   def get_coordinate_and_print_error
     get_coordinate_input
-    unless coordinates.valid?
+    unless coordinates.valid?(grid)
       printer.print_coordinates_error
     end
   end
@@ -29,7 +29,7 @@ class PlayerInput
   end
 
   def get_coordinate_input
-    @coordinates = Coordinates.new(get_user_input, grid)
+    @coordinates = Coordinates.new(get_user_input)
   end
 
   def get_user_input
