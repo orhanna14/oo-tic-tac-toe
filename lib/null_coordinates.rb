@@ -3,7 +3,7 @@ class NullCoordinates
     nil
   end
 
-  def valid?
+  def valid?(grid)
     false
   end
 end

@@ -25,13 +25,21 @@ class GameRunner
   end
 
   def run
-    print_welcome_message
-    print_grid
-    mark_grid
-    print_grid
+    introduce_game
+    player_1_turn
   end
 
   private
+
+  def introduce_game
+    print_welcome_message
+    print_grid
+  end
+
+  def player_1_turn
+    mark_grid
+    print_grid
+  end
 
   def print_welcome_message
     printer.print_welcome_message
@@ -41,11 +49,11 @@ class GameRunner
     grid_printer.print_grid
   end
 
-  def valid_coordinate
+  def get_valid_player_coordinate
     player_input.get_valid_coordinate
   end
 
   def mark_grid
-    grid.mark(valid_coordinate)
+    grid.mark(get_valid_player_coordinate)
   end
 end

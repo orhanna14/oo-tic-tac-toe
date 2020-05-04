@@ -1,12 +1,11 @@
 class Coordinates
-  attr_reader :value, :grid
+  attr_reader :value
 
-  def initialize(value, grid)
+  def initialize(value)
     @value = value
-    @grid = grid
   end
 
-  def valid?
+  def valid?(grid)
     grid.coordinate_valid?(value)
   end
 end

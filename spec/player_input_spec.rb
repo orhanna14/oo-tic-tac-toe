@@ -12,7 +12,7 @@ RSpec.describe PlayerInput do
       printer = Printer.new(invalid_format)
       player_input = PlayerInput.new(invalid_format, grid, printer)
       allow(invalid_format).to receive(:gets).and_return("A6", "B7", "A1")
-      coordinates = Coordinates.new(player_input.get_user_input, double(grid))
+      coordinates = Coordinates.new(invalid_format)
 
       result = player_input.get_valid_coordinate
 
