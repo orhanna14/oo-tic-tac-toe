@@ -1,6 +1,6 @@
 require_relative "grid"
 require_relative "printer"
-require_relative "player_turn"
+require_relative "player_input"
 require_relative "grid_printer"
 
 class GameRunner
@@ -20,8 +20,8 @@ class GameRunner
     @grid_printer ||= GridPrinter.new(stdout, grid)
   end
 
-  def player_turn
-    @player_turn ||= PlayerTurn.new(stdin, grid, printer)
+  def player_input
+    @player_input ||= PlayerInput.new(stdin, grid, printer)
   end
 
   def run
@@ -50,7 +50,7 @@ class GameRunner
   end
 
   def get_valid_player_coordinate
-    player_turn.get_valid_coordinate
+    player_input.get_valid_coordinate
   end
 
   def mark_grid
