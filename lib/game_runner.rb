@@ -60,7 +60,7 @@ class GameRunner
   end
 
   def mark_grid_with_computer_input
-    grid.mark(grid.get_random_key, 'O')
+    grid.mark(grid.get_computer_choice, 'O')
   end
 
   def get_valid_player_coordinate

@@ -84,11 +84,11 @@ RSpec.describe Grid do
     expect(grid.get_value(coordinate)).to eq('X')
   end
 
-  it "#get_random_key returns a random key from the structure" do
+  it "#get_computer_choice returns a random key from the structure" do
     grid = Grid.new
     valid_keys = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
 
-    computer_coordinate = grid.get_random_key
+    computer_coordinate = grid.get_computer_choice
 
     expect(valid_keys).to include(computer_coordinate)
   end
