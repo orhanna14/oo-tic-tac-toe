@@ -5,8 +5,8 @@ class Grid
     @structure = grid_structure
   end
 
-  def mark(coordinate)
-    structure[coordinate] = 'X'
+  def mark(coordinate, value)
+    structure[coordinate] = value
   end
   
   def coordinate_valid?(coordinate)
@@ -15,6 +15,11 @@ class Grid
 
   def get_value(coordinate)
     structure[coordinate]
+  end
+
+  def get_random_key
+    grid_keys = structure.keys
+    grid_keys[rand(grid_keys.size)]
   end
 
   private

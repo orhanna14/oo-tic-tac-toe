@@ -27,6 +27,7 @@ class GameRunner
   def run
     introduce_game
     player_1_turn
+    computer_turn
   end
 
   private
@@ -37,7 +38,12 @@ class GameRunner
   end
 
   def player_1_turn
-    mark_grid
+    mark_grid_with_player_input
+    print_grid
+  end
+
+  def computer_turn
+    mark_grid_with_computer_input
     print_grid
   end
 
@@ -49,11 +55,16 @@ class GameRunner
     grid_printer.print_grid
   end
 
+  def mark_grid_with_player_input
+    grid.mark(get_valid_player_coordinate, 'X')
+  end
+
+  def mark_grid_with_computer_input
+    grid.mark(grid.get_random_key, 'O')
+  end
+
   def get_valid_player_coordinate
     player_input.get_valid_coordinate
   end
 
-  def mark_grid
-    grid.mark(get_valid_player_coordinate)
-  end
 end

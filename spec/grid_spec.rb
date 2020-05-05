@@ -73,14 +73,23 @@ RSpec.describe Grid do
       expect(grid.coordinate_valid?(invalid_lower_case)).to eq false
     end
   end
-  describe "#mark" do
-    it "takes in a valid coordinate, and gives it a marked value in coordinates" do
-      coordinate = "A3"
-      grid = Grid.new
 
-      grid.mark(coordinate)
+  it "#mark takes in a valid coordinate, and gives it a marked value in coordinates" do
+    coordinate = "A3"
+    value = 'X'
+    grid = Grid.new
 
-      expect(grid.get_value(coordinate)).to eq('X')
-    end
+    grid.mark(coordinate, value)
+
+    expect(grid.get_value(coordinate)).to eq('X')
+  end
+
+  it "#get_random_key returns a random key from the structure" do
+    grid = Grid.new
+    valid_keys = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+
+    computer_coordinate = grid.get_random_key
+
+    expect(valid_keys).to include(computer_coordinate)
   end
 end
