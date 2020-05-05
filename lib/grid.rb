@@ -5,6 +5,14 @@ class Grid
     @structure = grid_structure
   end
 
+  def player_x
+    'X'
+  end
+
+  def player_o
+    'O'
+  end
+
   def mark(coordinate, value)
     structure[coordinate] = value
   end
