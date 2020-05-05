@@ -18,8 +18,13 @@ class Grid
   end
 
   def get_random_key
-    grid_keys = structure.keys
-    grid_keys[rand(grid_keys.size)]
+    computer_choices = []
+    structure.each { |key, value|
+      if value == " "
+        computer_choices << key
+      end
+    }
+    computer_choices[rand(computer_choices.size)]
   end
 
   private
