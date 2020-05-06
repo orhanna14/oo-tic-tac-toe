@@ -74,22 +74,58 @@ RSpec.describe Grid do
     end
   end
 
-  it "#mark takes in a valid coordinate, and gives it a marked value in coordinates" do
-    coordinate = "A3"
-    value = 'X'
-    grid = Grid.new
+  describe "#get_valid_options" do
+    it "gives the computer all choices that are available" do
+      srand(0)
+      coordinate_1 = "A1"
+      value_1 = 'X'
+      coordinate_2 = "B2"
+      value_2 = 'O'
+      coordinate_3 = "C3"
+      value_3 = 'X'
 
-    grid.mark(coordinate, value)
+      grid = Grid.new
+      valid_options = []
 
-    expect(grid.get_value(coordinate)).to eq('X')
+      grid.mark(coordinate_1, value_1)
+      grid.mark(coordinate_2, value_2)
+      grid.mark(coordinate_3, value_3)
+      
+      grid.get_valid_options(valid_options)
+
+      expect(valid_options).to eq(["A2", "A3", "B1", "B3", "C1", "C2"])
+    end
   end
 
-  it "#get_computer_choice returns a random key from the structure" do
-    grid = Grid.new
-    valid_keys = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+  describe "#mark" do
+    it "marks a valid coordinate in the grid" do
+      coordinate = "A3"
+      value = 'X'
+      grid = Grid.new
 
-    computer_coordinate = grid.get_computer_choice
+      grid.mark(coordinate, value)
 
-    expect(valid_keys).to include(computer_coordinate)
+      expect(grid.get_value(coordinate)).to eq('X')
+    end
   end
+
+  describe "#mark_with_computer_choice" do
+    it "assigns O to the valid coordinates" do
+      grid = Grid.new
+
+      grid.mark_with_computer_choice("A1")
+
+      expect(grid.get_value("A1")).to eq("O")
+    end
+  end
+
+  describe "#mark_with_player_choice" do
+  it "assigns X to the valid coordinates" do
+    grid = Grid.new
+
+    grid.mark_with_player_choice("A1")
+
+    expect(grid.get_value("A1")).to eq("X")
+  end
+end
 end

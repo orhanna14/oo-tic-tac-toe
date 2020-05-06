@@ -60,7 +60,7 @@ RSpec.describe GameRunner do
       
       it "after the user takes a turn, the computer takes a turn, and the grid is re-rendered with an O in a random location" do
         def seed_random_generator_for_computer_turn
-          srand
+          srand(0)
         end
         stdout = StringIO.new
         player_turn = StringIO.new
@@ -71,9 +71,9 @@ RSpec.describe GameRunner do
         grid_marked = <<~GRID_MARKED
         1  2  3
         __ __ __
-     A |O |  |  |
+     A |  |  |  |
        |__|__|__|
-     B |  |  |  |
+     B |  |O |  |
        |__|__|__|
      C |  |  |X |
        |__|__|__|

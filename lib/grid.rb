@@ -13,6 +13,14 @@ class Grid
     'O'
   end
 
+  def mark_with_computer_choice(valid_choice)
+    mark(valid_choice, player_o)
+  end
+
+  def mark_with_player_choice(valid_choice)
+    mark(valid_choice, player_x)
+  end
+
   def mark(coordinate, value)
     structure[coordinate] = value
   end
@@ -25,23 +33,17 @@ class Grid
     structure[coordinate]
   end
 
-  def get_computer_choice
-    get_random_key
+  def get_valid_options(computer_choices)
+    structure.each { |key, value|
+    if value == " "
+      computer_choices << key
+    end
+    }
   end
 
   private
 
   def grid_structure
     {"A1"=> ' ', "A2"=> ' ', "A3"=> ' ', "B1"=> ' ', "B2"=> ' ', "B3"=> ' ', "C1"=> ' ', "C2"=> ' ', "C3"=> ' '}
-  end
-
-  def get_random_key
-    computer_choices = []
-    structure.each { |key, value|
-      if value == " "
-        computer_choices << key
-      end
-    }
-    computer_choices[rand(computer_choices.size)]
   end
 end

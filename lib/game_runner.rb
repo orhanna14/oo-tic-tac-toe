@@ -61,11 +61,11 @@ class GameRunner
   end
 
   def mark_grid_with_player_input
-    grid.mark(get_valid_player_coordinate, grid.player_x)
+    grid.mark_with_player_choice(get_valid_player_coordinate)
   end
 
   def mark_grid_with_computer_input
-    grid.mark(get_computer_coordinate, grid.player_o)
+    grid.mark_with_computer_choice(get_computer_coordinate)
   end
 
   def get_computer_coordinate
@@ -75,5 +75,4 @@ class GameRunner
   def get_valid_player_coordinate
     player_input.get_valid_coordinate
   end
-
 end
