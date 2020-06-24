@@ -1,6 +1,6 @@
 require_relative "grid"
 require_relative "printer"
-require_relative "player_input"
+require_relative "player"
 require_relative "computer_player"
 require_relative "grid_printer"
 
@@ -21,8 +21,8 @@ class GameRunner
     @grid_printer ||= GridPrinter.new(stdout, grid)
   end
 
-  def player_input
-    @player_input ||= PlayerInput.new(stdin, grid, printer)
+  def player
+    @player ||= Player.new(stdin, grid, printer)
   end
 
   def computer_player
@@ -73,6 +73,6 @@ class GameRunner
   end
 
   def get_valid_player_coordinate
-    player_input.get_valid_coordinate
+    player.get_valid_coordinate
   end
 end
