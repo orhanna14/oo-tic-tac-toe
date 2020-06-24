@@ -1,5 +1,6 @@
 require "spec_helper"
 require_relative "../lib/game_runner.rb"
+require_relative "helper_methods"
 
 RSpec.describe GameRunner do
   describe "#run" do
@@ -59,9 +60,6 @@ RSpec.describe GameRunner do
       end
       
       it "after the user takes a turn, the computer takes a turn, and the grid is re-rendered with an O in a random location" do
-        def seed_random_generator_for_computer_turn
-          srand(0)
-        end
         stdout = StringIO.new
         player_turn = StringIO.new
         game = GameRunner.new(stdout, player_turn)
