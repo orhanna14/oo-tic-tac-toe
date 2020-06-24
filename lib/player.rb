@@ -17,6 +17,10 @@ class Player
     coordinates.value
   end
 
+  def marker
+    'X'
+  end
+
   private
 
   def ask_for_coordinate_and_print_error

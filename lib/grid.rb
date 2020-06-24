@@ -5,20 +5,8 @@ class Grid
     @structure = build_grid
   end
 
-  def player_x
-    'X'
-  end
-
-  def player_o
-    'O'
-  end
-
-  def mark_with_computer_choice(valid_choice)
-    mark(valid_choice, player_o)
-  end
-
-  def mark_with_player_choice(valid_choice)
-    mark(valid_choice, player_x)
+  def mark_with_player_choice(valid_choice, marker)
+    mark(valid_choice, marker)
   end
 
   def mark(coordinate, value)

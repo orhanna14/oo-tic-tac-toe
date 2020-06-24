@@ -109,23 +109,21 @@ RSpec.describe Grid do
     end
   end
 
-  describe "#mark_with_computer_choice" do
-    it "assigns O to the valid coordinates" do
-      grid = Grid.new
-
-      grid.mark_with_computer_choice("A1")
-
-      expect(grid.get_value("A1")).to eq("O")
-    end
-  end
-
   describe "#mark_with_player_choice" do
   it "assigns X to the valid coordinates" do
     grid = Grid.new
 
-    grid.mark_with_player_choice("A1")
+    grid.mark_with_player_choice("A1", 'X')
 
     expect(grid.get_value("A1")).to eq("X")
+  end
+
+  it "assigns O to the valid coordinates" do
+    grid = Grid.new
+
+    grid.mark_with_player_choice("A1", 'O')
+
+    expect(grid.get_value("A1")).to eq("O")
   end
 end
 end

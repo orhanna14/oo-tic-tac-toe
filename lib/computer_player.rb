@@ -11,6 +11,10 @@ class ComputerPlayer
     randomize_computer_choice
   end
 
+  def marker
+    'O'
+  end
+
   private
 
   def randomize_computer_choice
