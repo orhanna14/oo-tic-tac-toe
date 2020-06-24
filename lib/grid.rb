@@ -2,7 +2,7 @@ class Grid
   attr_accessor :structure
 
   def initialize
-    @structure = grid_structure
+    @structure = build_grid
   end
 
   def player_x
@@ -43,7 +43,21 @@ class Grid
 
   private
 
-  def grid_structure
-    {"A1"=> ' ', "A2"=> ' ', "A3"=> ' ', "B1"=> ' ', "B2"=> ' ', "B3"=> ' ', "C1"=> ' ', "C2"=> ' ', "C3"=> ' '}
+  def build_grid
+    coordinates = []
+    row.each do |letter|
+      column.each do |number|
+         coordinates.push(letter + number)
+      end
+    end
+    Hash[coordinates.collect { |coordinate| [coordinate, ' '] } ]
+  end
+
+  def row
+    ['A', 'B', 'C']
+  end
+
+  def column
+    ['1', '2', '3']
   end
 end
