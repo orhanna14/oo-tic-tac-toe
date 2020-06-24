@@ -23,9 +23,9 @@ class Grid
 
   def get_valid_options(computer_choices)
     structure.each { |key, value|
-    if value == " "
-      computer_choices << key
-    end
+      if value == " "
+        computer_choices << key
+      end
     }
   end
 
