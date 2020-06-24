@@ -6,7 +6,7 @@ class ComputerPlayer
     @grid = grid
   end
 
-  def get_valid_coordinate
+  def take_turn
     grid.get_valid_options(computer_choices)
     randomize_computer_choice
   end

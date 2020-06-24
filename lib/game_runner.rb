@@ -69,10 +69,10 @@ class GameRunner
   end
 
   def get_computer_coordinate
-    computer_player.get_valid_coordinate
+    computer_player.take_turn
   end
 
   def get_valid_player_coordinate
-    player.get_valid_coordinate
+    player.take_turn
   end
 end

@@ -10,7 +10,7 @@ class Player
     @printer = printer
   end
 
-  def get_valid_coordinate
+  def take_turn
     until coordinates.valid?(grid)
       ask_for_coordinate_and_print_error
     end

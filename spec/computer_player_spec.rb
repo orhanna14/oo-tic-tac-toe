@@ -3,7 +3,7 @@ require_relative "../lib/computer_player.rb"
 require_relative "../lib/grid.rb"
 
 RSpec.describe ComputerPlayer do
-  describe "#get_valid_coordinate" do
+  describe "#take_turn" do
     it "gives the computer all choices that are available" do
       srand(0)
       coordinate_1 = "A1"
@@ -21,7 +21,7 @@ RSpec.describe ComputerPlayer do
       grid.mark(coordinate_2, value_2)
       grid.mark(coordinate_3, value_3)
       
-      choice = computer_player.get_valid_coordinate
+      choice = computer_player.take_turn
 
       expect(valid_options).to include(choice)
     end
