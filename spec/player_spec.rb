@@ -5,7 +5,7 @@ require_relative "../lib/grid.rb"
 require_relative "../lib/printer.rb"
 
 RSpec.describe Player do
-  describe "#take_turn" do
+  describe "#get_valid_coordinate" do
      it "repeatedly asks for valid coordinate, returns the value when valid" do
       player_input = StringIO.new
       grid = Grid.new
@@ -14,7 +14,7 @@ RSpec.describe Player do
       allow(player_input).to receive(:gets).and_return("A6", "B7", "A1")
       coordinates = Coordinates.new(player_input)
 
-      result = player.take_turn
+      result = player.get_valid_coordinate
 
       expect(result).to eq("A1")
     end

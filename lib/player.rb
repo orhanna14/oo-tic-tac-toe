@@ -10,7 +10,11 @@ class Player
     @printer = printer
   end
 
-  def take_turn
+  def mark_grid_with_player_input
+    grid.mark_with_player_choice(get_valid_coordinate, marker)
+  end
+
+  def get_valid_coordinate
     until coordinates.valid?(grid)
       ask_for_coordinate_and_print_error
     end
