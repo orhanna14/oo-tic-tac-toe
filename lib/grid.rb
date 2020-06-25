@@ -22,14 +22,14 @@ class Grid
     structure[coordinate]
   end
 
-  def get_valid_option
-    get_options
+  def get_random_coordinate
+    get_valid_options
     randomize_computer_choice
   end
 
   private
 
-  def get_options
+  def get_valid_options
     structure.each { |key, value|
       if value == " "
         computer_options << key

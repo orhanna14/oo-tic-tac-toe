@@ -6,7 +6,7 @@ class ComputerPlayer
   end
 
   def take_turn
-    grid.get_valid_option
+    grid.get_random_coordinate
   end
 
   def marker

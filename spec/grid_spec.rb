@@ -74,7 +74,7 @@ RSpec.describe Grid do
     end
   end
 
-  describe "#get_valid_option" do
+  describe "#get_random_coordinate" do
     it "gives the computer all choices that are available" do
       srand(0)
       coordinate_1 = "A1"
@@ -92,7 +92,7 @@ RSpec.describe Grid do
       grid.mark(coordinate_2, value_2)
       grid.mark(coordinate_3, value_3)
       
-      randomized_computer_choice = grid.get_valid_option
+      randomized_computer_choice = grid.get_random_coordinate
 
       expect(remaining_options).to include(randomized_computer_choice)
     end
