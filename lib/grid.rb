@@ -1,8 +1,10 @@
+require_relative 'cell.rb'
+
 class Grid
-  attr_accessor :structure, :computer_options
+  attr_accessor :cells, :computer_options
 
   def initialize
-    @structure = build_grid
+    @cells = build_grid
     @computer_options = []
   end
 
@@ -11,15 +13,15 @@ class Grid
   end
 
   def mark(coordinate, value)
-    structure[coordinate] = value
+    cells[coordinate] = value
   end
   
   def coordinate_valid?(coordinate)
-    structure.key?(coordinate)
+    cells.key?(coordinate)
   end
 
   def get_value(coordinate)
-    structure[coordinate]
+    cells[coordinate]
   end
 
   def get_random_coordinate
@@ -30,7 +32,7 @@ class Grid
   private
 
   def get_valid_options
-    structure.each { |key, value|
+    cells.each { |key, value|
       if value == " "
         computer_options << key
       end
@@ -42,7 +44,7 @@ class Grid
   end
 
   def build_grid
-    coordinates = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3']
-    Hash[coordinates.collect { |coordinate| [coordinate, ' '] } ]
+    Cell.coordinates
+    Cell.marks
   end
 end
