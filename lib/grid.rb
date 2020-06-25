@@ -42,20 +42,7 @@ class Grid
   end
 
   def build_grid
-    coordinates = []
-    row.each do |letter|
-      column.each do |number|
-         coordinates.push(letter + number)
-      end
-    end
+    coordinates = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3']
     Hash[coordinates.collect { |coordinate| [coordinate, ' '] } ]
-  end
-
-  def row
-    ['A', 'B', 'C']
-  end
-
-  def column
-    ['1', '2', '3']
   end
 end
