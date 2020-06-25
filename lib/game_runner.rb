@@ -43,12 +43,12 @@ class GameRunner
   end
 
   def player_turn
-    player.mark_grid_with_player_input
+    player.mark_grid_with_input
     print_grid
   end
 
   def computer_turn
-    mark_grid_with_computer_input
+    computer_player.mark_grid_with_input
     print_grid
   end
 
@@ -58,17 +58,5 @@ class GameRunner
 
   def print_grid
     grid_printer.print_grid
-  end
-
-  def mark_grid_with_computer_input
-    grid.mark_with_player_choice(get_computer_coordinate, computer_player_marker)
-  end
-
-  def get_computer_coordinate
-    computer_player.take_turn
-  end
-
-  def computer_player_marker
-    computer_player.marker
   end
 end

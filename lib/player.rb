@@ -10,7 +10,7 @@ class Player
     @printer = printer
   end
 
-  def mark_grid_with_player_input
+  def mark_grid_with_input
     grid.mark_with_player_choice(get_valid_coordinate, marker)
   end
 
