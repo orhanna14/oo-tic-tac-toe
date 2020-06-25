@@ -1,8 +1,9 @@
 class Grid
-  attr_accessor :structure
+  attr_accessor :structure, :computer_options
 
   def initialize
     @structure = build_grid
+    @computer_options = []
   end
 
   def mark_with_player_choice(valid_choice, marker)
@@ -21,15 +22,24 @@ class Grid
     structure[coordinate]
   end
 
-  def get_valid_options(computer_choices)
+  def get_valid_option
+    get_options
+    randomize_computer_choice
+  end
+
+  private
+
+  def get_options
     structure.each { |key, value|
       if value == " "
-        computer_choices << key
+        computer_options << key
       end
     }
   end
 
-  private
+  def randomize_computer_choice
+    computer_options[rand(computer_options.size)]
+  end
 
   def build_grid
     coordinates = []
